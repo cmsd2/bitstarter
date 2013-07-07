@@ -21,7 +21,7 @@ var streamFile = function(name, mimeType, response) {
 };
 
 app.get('/', function(request, response) {
-  streamFile('index.html', 'text/plain', response);
+  streamFile('index.html', 'text/html', response);
 });
 
 var port = process.env.PORT || 5000;
