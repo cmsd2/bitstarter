@@ -20,11 +20,12 @@ var streamFile = function(name, mimeType, response) {
   util.pump(stream, response);
 };
 
-app.get('/', function(request, response) {
-  streamFile('index.html', 'text/html', response);
+app.configure(function() {
+    app.use(express.static(__dirname + '/public'));
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8080;
+
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
